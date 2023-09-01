@@ -138,7 +138,7 @@ class PromotedMetricsModule(
   fun getCurrentOrPendingAncestorIds(promise: Promise) {
     promise.resolve(
       Arguments.createMap().apply {
-        putString("logUserId", initializedPromotedAi?.logUserId ?: "")
+        putString("anonUserId", initializedPromotedAi?.anonUserId ?: "")
         putString("sessionId", initializedPromotedAi?.sessionId ?: "")
         putString("viewId", initializedPromotedAi?.viewId ?: "")
       }
@@ -148,8 +148,8 @@ class PromotedMetricsModule(
   @ReactMethod
   @Suppress("Unused")
   fun setAncestorIds(ancestorIds: ReadableMap) {
-    val logUserId = ancestorIds.getString("logUserId")
-    if (logUserId != null) initializedPromotedAi?.logUserId = logUserId
+    val anonUserId = ancestorIds.getString("anonUserId")
+    if (anonUserId != null) initializedPromotedAi?.anonUserId = anonUserId
 
     val sessionId = ancestorIds.getString("sessionId")
     if (sessionId != null) initializedPromotedAi?.sessionId = sessionId

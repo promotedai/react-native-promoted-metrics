@@ -142,7 +142,7 @@ const TestScreen: () => Node = () => {
     recordTestPassed('getCurrentOrPendingAncestorIds')
 
     const ancestorIds = {
-      logUserId: 'batman',
+      anonUserId: 'batman',
       sessionId: 'gotham',
       viewId: 'joker'
     } as AncestorIds

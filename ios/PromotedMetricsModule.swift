@@ -260,7 +260,7 @@ public extension PromotedMetricsModule {
       return
     }
     let sessionInfo = [
-      "logUserId": metricsLogger.currentOrPendingLogUserID,
+      "anonUserId": metricsLogger.currentOrPendingAnonUserID,
       "sessionId": metricsLogger.currentOrPendingSessionID,
       "viewId": metricsLogger.currentOrPendingViewID,
     ]
@@ -270,8 +270,8 @@ public extension PromotedMetricsModule {
   @objc(setAncestorIds:)
   func setAncestorIDs(_ ancestorIDs: ReactNativeDictionary?) {
     guard let metricsLogger = metricsLogger else { return }
-    if let logUserID = ancestorIDs?["logUserId"] as? String {
-      metricsLogger.logUserID = logUserID
+    if let anonUserID = ancestorIDs?["anonUserId"] as? String {
+      metricsLogger.anonUserID = anonUserID
     }
     if let sessionID = ancestorIDs?["sessionId"] as? String {
       metricsLogger.sessionID = sessionID

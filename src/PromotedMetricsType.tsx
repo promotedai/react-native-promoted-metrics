@@ -10,7 +10,7 @@ import type {
 
 /** Provides session context for Promoted integration points. */
 export interface AncestorIds {
-  logUserId?: string
+  anonUserId?: string
   sessionId?: string
   viewId?: string
 }

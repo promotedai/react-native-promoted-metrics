@@ -8,10 +8,9 @@ const PORT = 4723
 const config =
   (TEST_PLATFORM == 'ios') ? {
     platformName: "iOS",
-    platformVersion: "14.4",
-    deviceName: "iPhone 11",
+    platformVersion: "15.2",
+    deviceName: "iPhone 12",
     app: "build/BuildProject.ipa",
-    automationName: "XCUITest",
   } :
   (TEST_PLATFORM == 'android') ? {
     platformName: "Android",

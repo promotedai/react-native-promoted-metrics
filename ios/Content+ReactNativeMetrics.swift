@@ -7,7 +7,8 @@ extension Content {
   static let contentIDKeys = ["contentId"]
   static let insertionIDKeys = ["insertionId"]
 
-  convenience init(_ dict: ReactNativeDictionary?) {
+  convenience init?(_ dict: ReactNativeDictionary?) {
+    guard let dict = dict else { return nil }
     self.init(
       properties: dict,
       nameKeys: Self.nameKeys,

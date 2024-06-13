@@ -15,7 +15,7 @@ extension OSLog {
     }
     argsCopy.replaceIfPresent(key: "content") {
       guard let dict = $0 as? ReactNativeDictionary else { return $0 }
-      return Content(dict)
+      return Content(dict) ?? Content()
     }
     argsCopy.replaceIfPresent(key: "hasSuperimposedViews") {
       guard let n = $0 as? Int else { return $0 }

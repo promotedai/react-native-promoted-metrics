@@ -51,6 +51,7 @@ export class MetricsLogger {
   }
 
   logAction({
+    cart = undefined,
     content,
     actionType,
     destinationScreenName = '',
@@ -64,6 +65,7 @@ export class MetricsLogger {
       actionName,
       actionType,
       autoViewId,
+      cart,
       content,
       destinationScreenName,
       hasSuperimposedViews,

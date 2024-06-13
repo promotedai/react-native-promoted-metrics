@@ -94,10 +94,10 @@ public extension PromotedMetricsModule {
   // MARK: - Impressions
   @objc(logImpression:)
   func logImpression(_ args: LogImpressionArgs?) {
-    guard let args = args else { return }
+    guard let args = args, let content = args.content else { return }
     osLog?.debug(args: args)
     metricsLogger?.logImpression(
-      content: args.content,
+      content: content,
       sourceType: args.impressionSourceType,
       autoViewState: args.autoViewState,
       collectionInteraction: collectionInteraction(args: args)
@@ -198,10 +198,10 @@ public extension PromotedMetricsModule {
   func collectionActionDidOccur(_ args: CollectionActionDidOccurArgs?) {
     guard
       let args = args,
+      let content = args.content,
       let id = args.collectionID,
       let tracker = idToImpressionTracker[id]
     else { return }
-    let content = args.content
     let impressionID = tracker.impressionID(for: content)
     osLog?.debug(args: args)
     metricsLogger?.logAction(

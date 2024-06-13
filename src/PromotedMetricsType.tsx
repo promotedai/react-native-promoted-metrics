@@ -1,4 +1,5 @@
 import type { ActionType } from './ActionType'
+import type { Cart } from './Cart'
 import type { Content } from './Content'
 import type { ImpressionSourceType } from './ImpressionSourceType'
 import type {
@@ -43,8 +44,11 @@ export interface CollectionActionDidOccurArgs {
   actionType: ActionType
   /** AutoViewId for action */
   autoViewId: string
+  /** Shopping cart involved in the action */
+  cart: Cart
   /** Identifier for collection view to track */
   collectionId: string
+  /** Content involved in the action. */
   content: Content
   /** Whether this view may not be topmost. */
   hasSuperimposedViews: boolean
@@ -101,10 +105,11 @@ export type PromotedMetricsType = {
    * use this method and provide a name for the action.
    */
   logAction({
-    content,
     actionName,
     actionType,
     autoViewId,
+    cart,
+    content,
     destinationScreenName,
     hasSuperimposedViews,
   } : InternalLogActionArgs): void
@@ -167,6 +172,7 @@ export type PromotedMetricsType = {
     actionName,
     actionType,
     autoViewId,
+    cart,
     collectionId,
     content,
     hasSuperimposedViews,

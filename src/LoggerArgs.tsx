@@ -1,4 +1,5 @@
 import type { ActionType } from './ActionType'
+import type { Cart } from './Cart'
 import type { Content } from './Content'
 import type { ImpressionSourceType } from './ImpressionSourceType'
 
@@ -27,6 +28,9 @@ export type InternalLogImpressionArgs = (
 
 /** Arguments for `logAction`. */
 export type LogActionArgs = {
+  /** Shopping cart involved in the action. */
+  cart?: Cart
+
   /** Content involved in the action. */
   content?: Content
 
